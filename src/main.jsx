@@ -37,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/addspot",
         element: <AddSpot></AddSpot>
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>
       }
     ]
   },
