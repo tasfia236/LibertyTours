@@ -11,6 +11,9 @@ import Register from './Auth/Register.jsx';
 import Home from './components/Home.jsx';
 import AllSpots from './components/AllSpots/AllSpots.jsx';
 import AddSpot from './components/AddSpot/AddSpot.jsx';
+import Contact from './components/Contact/Contact.jsx';
+import { HelmetProvider } from 'react-helmet-async';
+import AuthProviders from './Providers/AuthProviders.jsx';
 
 
 const router = createBrowserRouter([
@@ -49,6 +52,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProviders>
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
+    </AuthProviders>
   </React.StrictMode>,
 )

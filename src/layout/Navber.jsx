@@ -1,11 +1,21 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProviders";
+import { IoPersonOutline } from "react-icons/io5";
 
 const Navber = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logOut()
+            .then(() => console.log('logOut'))
+            .catch(error => console.error(error))
+    }
 
     const Navlinks1 = <>
-        <li className="hover:bg-sky-200 rounded-lg {({isActive})=> isActive? ' bg-sky-200 rounded-lg font-bold ' : 'font-bold'}"><Link to='/'>Home</Link></li>
+        <li className="hover:bg-sky-200 rounded-lg"><Link to='/'>Home</Link></li>
         {/* <li><Link onClick={() => window.scrollTo({ top:600, behavior: "smooth" })}>Estate</Link></li>*/}
-        <li className="hover:bg-sky-200 rounded-lg {({isActive})=> isActive? ' bg-sky-200 rounded-lg font-bold ' : 'font-bold'}"><Link to='/allspots'>All Tourists Spot</Link></li> 
+        <li className="hover:bg-sky-200 rounded-lg"><Link to='/allspots'>All Tourists Spot</Link></li> 
         <li className="hover:bg-sky-200 rounded-lg"><Link to='/addspot'>Add Tourists Spot</Link></li>
         <li className="hover:bg-sky-200 rounded-lg"><Link to='/contact'>Contact</Link></li>
     </>
@@ -30,7 +40,7 @@ const Navber = () => {
             </div>
             <div className="navbar-end gap-2">
                 <div className="navbar-center hidden lg:flex">
-                    {/* <ul className="menu menu-horizontal px-1">
+                     <ul className="menu menu-horizontal px-1">
                         {
                             user && <>
 
@@ -45,10 +55,10 @@ const Navber = () => {
                                 </li>
                             </>
                         }
-                    </ul> */}
+                    </ul>
                 </div>
                 <div className="dropdown dropdown-end">
-                    {/* {
+                    {
                         user && <>
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle z-[9999] pt-1 pl-1 avatar lg:tooltip lg:tooltip-bottom" data-tip={user.displayName}>
                                 {user.photoURL ? <div className="w-10 rounded-full">
@@ -58,9 +68,9 @@ const Navber = () => {
                                 }
                             </div>
                         </>
-                    } */}
+                    }
                     <ul tabIndex={0} className="lg:hidden menu menu-sm fixed dropdown-content mt-1 z-[9999] p-2 shadow bg-base-100 rounded-box w-52">
-                        {/* {user && <>
+                        { user && <>
                             <li className="pl-3 font-bold text-lg">{user.displayName}</li>
                             <li className="pl-3">{user.email}</li>
                             <li>
@@ -71,21 +81,20 @@ const Navber = () => {
                             <li><a onClick={handleLogout} >Logout</a></li>
 
                         </>
-                        } */}
+                        }
                     </ul>
                 </div>
                 <div className="flex gap-3">
-                    {/* {
-                        !user && <> */}
+                    {
+                        !user && <>
                             <Link to='/login'>
                                 <button className="btn">Sign In</button>
                             </Link>
                             <Link to='/register'>
-                                <button className="btn">Sign Up</button>
+                                <button className="btn bg-sky-300 font-bold">Sign Up</button>
                             </Link>
-                        {/* </>
-
-                    } */}
+                         </>
+                    } 
                 </div>
             </div>
         </div>
