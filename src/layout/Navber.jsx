@@ -13,11 +13,11 @@ const Navber = () => {
     }
 
     const Navlinks1 = <>
-        <li className="hover:bg-sky-200 rounded-lg"><Link to='/'>Home</Link></li>
+        <li><Link className="hover:bg-sky-200 rounded-lg" to='/'>Home</Link></li>
         {/* <li><Link onClick={() => window.scrollTo({ top:600, behavior: "smooth" })}>Estate</Link></li>*/}
-        <li className="hover:bg-sky-200 rounded-lg"><Link to='/allspots'>All Tourists Spot</Link></li> 
-        <li className="hover:bg-sky-200 rounded-lg"><Link to='/addspot'>Add Tourists Spot</Link></li>
-        <li className="hover:bg-sky-200 rounded-lg"><Link to='/contact'>Contact</Link></li>
+        <li><Link className="hover:bg-sky-200 rounded-lg" to='/allspots'>All Tourists Spot</Link></li> 
+        <li><Link className="hover:bg-sky-200 rounded-lg" to='/addspot'>Add Tourists Spot</Link></li>
+        <li><Link className="hover:bg-sky-200 rounded-lg" to='/contact'>Contact</Link></li>
     </>
 
     return (
