@@ -14,6 +14,9 @@ import AddSpot from './components/AddSpot/AddSpot.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import { HelmetProvider } from 'react-helmet-async';
 import AuthProviders from './Providers/AuthProviders.jsx';
+import PrivateRoute from './Route/PrivateRoute.jsx';
+import SpotsDetails from './components/SpotsDetails/SpotsDetails.jsx';
+import UpdateSpot from './components/UpdateSpots/UpdateSpot.jsx';
 
 
 const router = createBrowserRouter([
@@ -24,7 +27,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:8000/tourspots') 
+        loader: () => fetch('http://localhost:8000/tourspots')
+      },
+      {
+        path: "/details/:id",
+        element: <PrivateRoute><SpotsDetails></SpotsDetails></PrivateRoute>,
+   //     loader: () => fetch('http://localhost:8000/tourspots')
+      },
+      {
+        path: "/update/:id",
+        element: <PrivateRoute><UpdateSpot></UpdateSpot></PrivateRoute>
       },
       {
         path: "/login",

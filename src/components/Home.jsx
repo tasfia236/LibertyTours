@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "../layout/Banner";
 import TravelCard from "./TravelCard/TravelCard";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
 
@@ -9,6 +10,11 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>
+                    Liberty Tours | Home
+                </title>
+            </Helmet>
             <Banner></Banner>
 
             <h2 className="text-4xl text-center my-12 font-bold text-sky-800">Tourists Spots: {spots.length}</h2>

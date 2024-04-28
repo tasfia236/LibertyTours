@@ -1,64 +1,22 @@
+import { Helmet } from "react-helmet";
 
-import Swal from 'sweetalert2'
-//import withReactContent from 'sweetalert2-react-content'
-import { Helmet } from "react-helmet-async";
+const UpdateSpot = () => {
 
-const AddSpot = () => {
-    //  const MySwal = withReactContent(Swal)
-
-    const handleSpot = e => {
+    const handleUpdateSpot = e => {
         e.preventDefault();
-        const from = e.target;
-        const image = from.image.value;
-        const tourists_spot_name = from.tourists_spot_name.value;
-        const country_Name = from.country_name.value;
-        const location = from.location.value;
-        const description = from.short_description.value;
-        const average_cost = from.average_cost.value;
-        const seasonality = from.seasonality.value;
-        const travel_time = from.travel_time.value;
-        const totaVisitorsPerYear = from.totaVisitorsPerYear.value;
-        const user_email = from.user_email.value;
-        const user_name = from.user_name.value;
-
-        // console.log(image, tourists_spot_name, country_Name, location, short_description, average_cost, seasonality, travel_time, totaVisitorsPerYear, user_email, user_name);
-
-        const newSpot = { image, tourists_spot_name, country_Name, location, description, average_cost, seasonality, travel_time, totaVisitorsPerYear, user_email, user_name };
-        console.log(newSpot);
-
-        fetch('http://localhost:8000/tourspots', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(newSpot)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: 'Success',
-                        text: 'User Added Success',
-                        icon: 'success',
-                        confirmButtonText: 'Cool'
-                    })
-                }
-            })
     }
 
     return (
-
         <div className="p-12 min-h-screen bg-base-200">
             <Helmet>
-                <title>Liberty Tours | Add Tourist Spot</title>
+                <title>Liberty Tours | Update Tourist Spot</title>
             </Helmet>
             <div className="">
                 <div className="text-center lg:text-left mb-8">
                     <h1 className="text-5xl font-bold">Add Tourrist Spot!</h1>
                 </div>
                 <div className="card shadow-2xl bg-base-100">
-                    <form onSubmit={handleSpot} className="card-body">
+                    <form onSubmit={handleUpdateSpot} className="card-body">
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label htmlFor="image" className="block mb-2">Image URL:</label>
@@ -119,4 +77,4 @@ const AddSpot = () => {
     );
 };
 
-export default AddSpot;
+export default UpdateSpot;
