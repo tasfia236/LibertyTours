@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <div className='mx-auto max-w-7xl'>
+      <div className='mx-auto max-w-[1300px]'>
         <Navber></Navber>
         <Outlet></Outlet>
       </div>

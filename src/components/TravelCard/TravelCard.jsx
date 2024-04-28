@@ -1,20 +1,29 @@
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
+import { FaLocationDot } from "react-icons/fa6";
 
-const TravelCard = ({spots}) => {
+const TravelCard = ({ spots }) => {
 
-    const { image, tourists_spot_name, average_cost, totaVisitorsPerYear, travel_time, seasonality } = spots;
+    const { _id, image, tourists_spot_name, average_cost, location, travel_time, seasonality } = spots;
 
     return (
-        <div className="card w-96 bg-base-100 shadow-xl image-full">
+        <div className="card w-[350px] bg-base-100 shadow-xl image-full">
             <figure><img src={image} alt="" /></figure>
             <div className="card-body">
-                <h2 className="card-title">{tourists_spot_name}</h2>
-                <p>{average_cost}</p>
-                <p>{totaVisitorsPerYear}</p>
-                <p>{travel_time}</p>
-                <p>{seasonality}</p>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View Details</button>
+                <h3 className="card-title text-2xl flex-grow font-bold">{tourists_spot_name}</h3>
+                <div className="flex items-center gap-2"><FaLocationDot></FaLocationDot> {location}</div>
+                <hr />
+                <h6 className=" flex-grow"><span className='font-bold'>Seasonality:  </span> {seasonality}</h6>
+                
+                <div>
+                    <p className='text-base'><span className='font-bold'>Average Cost:  </span>  {average_cost}</p>
+                </div>
+                <hr />
+                <div className="card-actions justify-between">
+                    <div className="font-bold">Travel Time: {travel_time}</div>
+                </div>
+                <div className='card-actions justify-end mt-2'>
+                    <Link to={`/estate/${_id}`}><button className='btn bg-[#246286] text-white '>View Details</button></Link>
                 </div>
             </div>
         </div>
