@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
 import { IoPersonOutline } from "react-icons/io5";
+import { Tooltip } from "react-tooltip";
 
 const Navber = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -15,7 +16,7 @@ const Navber = () => {
     const Navlinks1 = <>
         <li><Link className="hover:bg-sky-200 rounded-lg" to='/'>Home</Link></li>
         {/* <li><Link onClick={() => window.scrollTo({ top:600, behavior: "smooth" })}>Estate</Link></li>*/}
-        <li><Link className="hover:bg-sky-200 rounded-lg" to='/allspots'>All Tourists Spot</Link></li> 
+        <li><Link className="hover:bg-sky-200 rounded-lg" to='/allspots'>All Tourists Spot</Link></li>
         <li><Link className="hover:bg-sky-200 rounded-lg" to='/addspot'>Add Tourists Spot</Link></li>
         <li><Link className="hover:bg-sky-200 rounded-lg" to='/contact'>Contact</Link></li>
     </>
@@ -29,6 +30,10 @@ const Navber = () => {
                     </div>
                     <ul tabIndex={0} className="menu menu-sm fixed z-[9999] dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         {Navlinks1}
+                        {user && <>
+                            <li><Link>My List</Link></li>
+                        </>
+                        }
                     </ul>
                 </div>
                 <h1 className="btn btn-ghost text-3xl font-black text-sky-600">Liberty Tours</h1>
@@ -36,19 +41,18 @@ const Navber = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal -mr-16 px-1 font-bold">
                     {Navlinks1}
+                    {user && <>
+                        <li><Link>My List</Link></li>
+                    </>
+                    }
                 </ul>
             </div>
             <div className="navbar-end gap-2">
                 <div className="navbar-center hidden lg:flex">
-                     <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1">
                         {
                             user && <>
 
-                                <li>
-                                    <Link to='/updateprofile' className="justify-between">
-                                        Update Profile
-                                    </Link>
-                                </li>
                                 <li><a onClick={handleLogout} >Logout</a></li>
                                 <li className=" pt-2">
                                     {user.email}
@@ -60,7 +64,7 @@ const Navber = () => {
                 <div className="dropdown dropdown-end">
                     {
                         user && <>
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle z-[9999] pt-1 pl-1 avatar lg:tooltip lg:tooltip-bottom" data-tip={user.displayName}>
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle z-[9999] avatar" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} data-tooltip-place="right">
                                 {user.photoURL ? <div className="w-10 rounded-full">
                                     <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
                                 </div>
@@ -70,14 +74,9 @@ const Navber = () => {
                         </>
                     }
                     <ul tabIndex={0} className="lg:hidden menu menu-sm fixed dropdown-content mt-1 z-[9999] p-2 shadow bg-base-100 rounded-box w-52">
-                        { user && <>
+                        {user && <>
                             <li className="pl-3 font-bold text-lg">{user.displayName}</li>
                             <li className="pl-3">{user.email}</li>
-                            <li>
-                                <Link to='/updateprofile'><a className="justify-between">
-                                    Update Profile
-                                </a></Link>
-                            </li>
                             <li><a onClick={handleLogout} >Logout</a></li>
 
                         </>
@@ -93,11 +92,13 @@ const Navber = () => {
                             <Link to='/register'>
                                 <button className="btn bg-sky-300 font-bold">Sign Up</button>
                             </Link>
-                         </>
-                    } 
+                        </>
+                    }
                 </div>
             </div>
+            <Tooltip id="my-tooltip" />
         </div>
+
     );
 };
 

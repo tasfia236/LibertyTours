@@ -8,7 +8,7 @@ import {
 import './index.css'
 import Login from './Auth/Login.jsx';
 import Register from './Auth/Register.jsx';
-import Home from './components/Home.jsx';
+import Home from './components/Home/Home.jsx';
 import AllSpots from './components/AllSpots/AllSpots.jsx';
 import AddSpot from './components/AddSpot/AddSpot.jsx';
 import Contact from './components/Contact/Contact.jsx';
@@ -27,16 +27,17 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:8000/tourspots')
-      },
-      {
-        path: "/details/:id",
-        element: <PrivateRoute><SpotsDetails></SpotsDetails></PrivateRoute>,
    //     loader: () => fetch('http://localhost:8000/tourspots')
       },
       {
+        path: "/details/:id",
+        element: <SpotsDetails></SpotsDetails>,
+         loader: ({params}) => fetch(`http://localhost:8000/tourspots/${params.id}`)
+      },
+      {
         path: "/update/:id",
-        element: <PrivateRoute><UpdateSpot></UpdateSpot></PrivateRoute>
+        element: <UpdateSpot></UpdateSpot>,
+        loader: ({params}) => fetch(`http://localhost:8000/tourspots/${params.id}`)
       },
       {
         path: "/login",
