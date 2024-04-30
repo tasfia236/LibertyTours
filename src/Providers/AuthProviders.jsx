@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 export const AuthContext = createContext(null);
 
-const AuthProviders = ({children}) => {
+const   AuthProviders = ({children}) => {
     const [user, setUser] = useState(null);
     const [loading, setloading] = useState(true);
 

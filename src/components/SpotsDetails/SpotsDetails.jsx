@@ -1,10 +1,13 @@
+
+//import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useLoaderData } from "react-router-dom";
 
 const SpotsDetails = () => {
 
     const spots = useLoaderData();
-    const { _id, image, tourists_spot_name, country_Name, average_cost, location, description, travel_time, seasonality, totaVisitorsPerYear, user_email, user_name } = spots;
+//    console.log(spots);
+    const { image, tourists_spot_name, country_Name, average_cost, location, description, travel_time, seasonality, totaVisitorsPerYear, email, name } = spots;
 
 
     return (
@@ -15,14 +18,14 @@ const SpotsDetails = () => {
 
             <h2 className="text-4xl font-bold text-center pt-12 pb-5">Property Details</h2>
             <div className="flex justify-evenly pt-2">
-                <p className="text-xl"><span className="font-bold">User Email: </span>  {user_email}</p>
-                <p className="text-xl"><span className="font-bold">User Name: </span>  {user_name}</p>
+                <p className="text-xl"><span className="font-bold">User Email: </span>  {email}</p>
+                <p className="text-xl"><span className="font-bold">User Name: </span>  {name}</p>
             </div>
             <div className="m-3 p-2 flex justify-center items-center">
-                <div className="w-fit mx-auto">
+                <div className="w-[40%] mx-auto">
                     <img className="w-fit h-280px lg:h-[380px] md:h-[350px] sm:h-[300px]" src={image} alt="" />
                 </div>
-                <div className=" px-24">
+                <div className="w-[60%] px-24">
                     <h1 className="py-5 font-bold text-2xl sm:text-4xl">{tourists_spot_name} </h1>
                     <p className="font-medium w-fit bg-[#2e7e8a] text-white rounded-xl px-2 py-1 text-base sm:text-xl">{country_Name}</p>
                     <p className="py-3 font-medium text-base sm:text-xl"><span className="font-bold">Location:  </span> {location} </p>

@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDZYoWgGy7iGFPIGtAewZ-x32LjRkx_fSc",
-  authDomain: "liberty-tours-70cb2.firebaseapp.com",
-  projectId: "liberty-tours-70cb2",
-  storageBucket: "liberty-tours-70cb2.appspot.com",
-  messagingSenderId: "530940362408",
-  appId: "1:530940362408:web:907d3b4ec59b7a7e73cc9d"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

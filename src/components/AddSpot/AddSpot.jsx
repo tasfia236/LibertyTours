@@ -41,7 +41,7 @@ const AddSpot = () => {
                         title: 'Success',
                         text: 'User Added Success',
                         icon: 'success',
-                        confirmButtonText: 'Cool'
+                        confirmButtonText: 'Done'
                     })
                 }
             })

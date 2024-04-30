@@ -5,10 +5,13 @@ const AllSpots = () => {
 
     const [spots, setSpots] = useState([]);
 
+
     useEffect(() => {
         fetch('http://localhost:8000/tourspots')
         .then(res => res.json())
-        .then(data => setSpots(data));
+        .then((data) => {
+            setSpots(data)
+        });
     },[]);
     
     return (

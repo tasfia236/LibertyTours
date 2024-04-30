@@ -14,9 +14,12 @@ import AddSpot from './components/AddSpot/AddSpot.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import { HelmetProvider } from 'react-helmet-async';
 import AuthProviders from './Providers/AuthProviders.jsx';
-import PrivateRoute from './Route/PrivateRoute.jsx';
+//import PrivateRoute from './Route/PrivateRoute.jsx';
 import SpotsDetails from './components/SpotsDetails/SpotsDetails.jsx';
 import UpdateSpot from './components/UpdateSpots/UpdateSpot.jsx';
+import MyList from './components/MyList/MyList.jsx';
+import CountriesSpots from './components/CountriesSpots/CountriesSpots.jsx';
+import PrivateRoute from './Route/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -31,12 +34,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <SpotsDetails></SpotsDetails>,
-         loader: ({params}) => fetch(`http://localhost:8000/tourspots/${params.id}`)
+        element: <PrivateRoute><SpotsDetails></SpotsDetails></PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:8000/tourspots/${params.id}`)
       },
       {
         path: "/update/:id",
-        element: <UpdateSpot></UpdateSpot>,
+        element: <PrivateRoute><UpdateSpot></UpdateSpot></PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:8000/tourspots/${params.id}`)
       },
       {
@@ -49,15 +52,24 @@ const router = createBrowserRouter([
       },
       {
         path: "/allspots",
-        element: <AllSpots></AllSpots>
+        element: <PrivateRoute><AllSpots></AllSpots></PrivateRoute>
       },
       {
         path: "/addspot",
-        element: <AddSpot></AddSpot>
+        element: <PrivateRoute><AddSpot></AddSpot></PrivateRoute>
       },
       {
         path: "/contact",
         element: <Contact></Contact>
+      },
+      {
+        path: "/mylist",
+        element: <PrivateRoute><MyList></MyList></PrivateRoute>
+      },
+      {
+        path: "/country/:id",
+        element: <PrivateRoute><CountriesSpots></CountriesSpots></PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:8000/country/${params.id}`)
       }
     ]
   },
