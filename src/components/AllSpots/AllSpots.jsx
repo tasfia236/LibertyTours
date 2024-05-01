@@ -4,7 +4,21 @@ import SingleSpot from "./SingleSpot";
 const AllSpots = () => {
 
     const [spots, setSpots] = useState([]);
-    const [sortOption, setSortOption] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [sortOption, setSortOption] = useState("asc");
+
+    useEffect(() => {
+        fetch('http://localhost:8000/tourspots')
+            .then(res => res.json())
+            .then((data) => {
+                setSpots(data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                setLoading(false);
+            });
+    }, []);
 
     const handleSortChange = (e) => {
         const option = e.target.value;
@@ -18,17 +32,9 @@ const AllSpots = () => {
                 return b.average_cost - a.average_cost;
             }
         });
-
-        setSortedSpots(sorted);
+        setSpots(sorted);
     };
 
-    useEffect(() => {
-        fetch(' http://localhost:8000/tourspots')
-            .then(res => res.json())
-            .then((data) => {
-                setSpots(data)
-            });
-    }, []);
 
     return (
         <div>

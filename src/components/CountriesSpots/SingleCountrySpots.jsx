@@ -1,7 +1,5 @@
 
 import { FaLocationDot } from 'react-icons/fa6';
-import { HiOutlineNewspaper } from 'react-icons/hi';
-import { SlPeople } from 'react-icons/sl';
 import { Link } from 'react-router-dom';
 
 const SingleCountrySpots = ({ countryplace }) => {

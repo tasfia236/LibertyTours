@@ -17,6 +17,7 @@ const Home = () => {
     const [country, setCountry] = useState([]);
     const [loading, setLoading] = useState(true);
 
+
     useEffect(() => {
         fetch(' http://localhost:8000/tourspots')
             .then(res => res.json())
