@@ -72,7 +72,7 @@ const Home = () => {
 
             <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-y-5 ml-8">
                 {
-                    country.map(country => <Countries key={spots._id} country={country}></Countries>)
+                    country.map(country => <Countries key={country._id} country={country}></Countries>)
                 }
             </div>
             <Corners></Corners>
