@@ -21,7 +21,7 @@ const SpotsDetails = () => {
                 <p className="text-xl"><span className="font-bold">User Email: </span>  {user_email}</p>
                 <p className="text-xl"><span className="font-bold">User Name: </span>  {user_name}</p>
             </div>
-            <div className="m-3 p-2 flex justify-center items-center">
+            <div className="m-3 p-2 flex flex-col lg:flex-row justify-center items-center">
                 <div className="w-[40%] mx-auto">
                     <img className="w-fit h-280px lg:h-[380px] md:h-[350px] sm:h-[300px]" src={image} alt="" />
                 </div>

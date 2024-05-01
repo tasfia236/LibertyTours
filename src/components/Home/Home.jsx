@@ -60,7 +60,7 @@ const Home = () => {
                     <FadeLoader color="#36D7B7" loading={loading} size={40} />
                 </div>
             ) : (
-                <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-y-5 ml-8">
+                <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-y-5 ml-24 lg:ml-8 md:ml-12 sm:ml-20">
                     {spots.slice(0, 6).map(spot => <TravelCard key={spot._id} spots={spot} />)}
                 </div>
             )}

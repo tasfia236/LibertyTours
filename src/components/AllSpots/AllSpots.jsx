@@ -46,7 +46,7 @@ const AllSpots = () => {
                 </select>
             </div>
             <h2 className="text-4xl text-center my-12 font-bold text-sky-800">All Tourists Spots</h2>
-            <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-y-5 ml-8">
+            <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-y-5 ml-24 lg:ml-8 md:ml-12 sm:ml-20">
                 {
                     spots.map(spots => <SingleSpot key={spots._id} spots={spots}></SingleSpot>)
                 }
