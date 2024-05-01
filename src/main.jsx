@@ -20,12 +20,14 @@ import UpdateSpot from './components/UpdateSpots/UpdateSpot.jsx';
 import MyList from './components/MyList/MyList.jsx';
 import CountriesSpots from './components/CountriesSpots/CountriesSpots.jsx';
 import PrivateRoute from './Route/PrivateRoute.jsx';
+import ErrorPage from './Auth/ErrorPage/ErrorPage.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

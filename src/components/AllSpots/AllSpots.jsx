@@ -5,7 +5,7 @@ const AllSpots = () => {
 
     const [spots, setSpots] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [sortOption, setSortOption] = useState("asc");
+    const [sortOption, setSortOption] = useState('Sorted By');
 
     useEffect(() => {
         fetch('http://localhost:8000/tourspots')
@@ -40,6 +40,7 @@ const AllSpots = () => {
         <div>
             <div className="flex justify-center my-4 ">
                 <select className="bg-sky-800 text-white font-bold p-4 rounded-xl" id="sort" value={sortOption} onChange={handleSortChange}>
+                    <option disabled>Sorted By</option>
                     <option value="asc">Average Cost Low to High</option>
                     <option value="desc">Average Cost High to Low</option>
                 </select>
