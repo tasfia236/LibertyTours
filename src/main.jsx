@@ -70,6 +70,7 @@ const router = createBrowserRouter([
         path: "/country/:id",
         element: <PrivateRoute><CountriesSpots></CountriesSpots></PrivateRoute>,
         loader: ({params}) => fetch(` http://localhost:8000/country/${params.id}`)
+  //    loader: ({params}) => fetch(` http://localhost:8000/tourspots/${params.name}`)
       }
     ]
   },

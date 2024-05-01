@@ -20,15 +20,29 @@ const Home = () => {
     useEffect(() => {
         fetch(' http://localhost:8000/tourspots')
             .then(res => res.json())
-            .then(data => setSpots(data));
-        setLoading(false);
+            .then(data => {
+                setSpots(data);
+                setLoading(false);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                setLoading(false);
+            });
+
     }, []);
 
     useEffect(() => {
         fetch(' http://localhost:8000/country')
-            .then(res => res.json())
-            .then(data => setCountry(data));
-        setLoading(false);
+        .then(res => res.json())
+        .then(data => {
+          setCountry(data);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          setLoading(false);
+        });
+  
     }, [])
 
     return (

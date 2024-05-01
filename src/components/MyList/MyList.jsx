@@ -7,8 +7,7 @@ const MyList = () => {
     const { user, loading } = useContext(AuthContext) || {};
     //  console.log(user);
     const [place, setPlace] = useState([]);
-    const [loadspots, setLoadspots] = useState(place);
-
+    console.log(place);
 
     useEffect(() => {
         fetch(` http://localhost:8000/mylist/${user?.email}`)
@@ -18,6 +17,8 @@ const MyList = () => {
                 //    console.log(data);
             });
     }, [user]);
+
+    const [loadspots, setLoadspots] = useState(place); 
 
     if (loading) {
         return <span className="loading loading-infinity loading-lg"></span>
