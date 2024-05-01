@@ -7,10 +7,11 @@ const MyList = () => {
     const { user, loading } = useContext(AuthContext) || {};
     //  console.log(user);
     const [place, setPlace] = useState([]);
+    const [loadspots, setLoadspots] = useState(place);
 
 
     useEffect(() => {
-        fetch(`http://localhost:8000/mylist/${user?.email}`)
+        fetch(` http://localhost:8000/mylist/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setPlace(data);
@@ -21,7 +22,7 @@ const MyList = () => {
     if (loading) {
         return <span className="loading loading-infinity loading-lg"></span>
     }
-    
+
     return (
         <div className=" gadgetContainer pt-10">
             <table className="table table-zebra">
@@ -36,11 +37,16 @@ const MyList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                {
-                    place.map(place => <Table key={place._id} place={place}></Table>)
-                }
-            </tbody>
-        </table>
+                    {
+                        place.map(place => <Table
+                            key={place._id}
+                            place={place}
+                            loadspots={loadspots}
+                            setLoadspots={setLoadspots}
+                        ></Table>)
+                    }
+                </tbody>
+            </table>
         </div >
     );
 };

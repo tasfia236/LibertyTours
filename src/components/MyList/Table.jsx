@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const Table = ({ place }) => {
+const Table = ({ place, loadspots, setloadspots }) => {
     const { _id, tourists_spot_name, location, average_cost, seasonality } = place;
 
 
@@ -19,18 +19,20 @@ const Table = ({ place }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:8000/tourspots/${_id}`, {
+                fetch(` http://localhost:8000/tourspots/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
                         console.log(data);
-                        if (data.deleteCount > 0) {
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "Your Tourist Spot has been deleted.",
-                                icon: "success"
-                            });
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                "Deleted!",
+                                "Your Tourist Spot has been deleted.",
+                                "success"
+                            );
+                            const remaining = loadspots.filter(plc => plc._id !== _id);
+                            setloadspots(remaining);
                         }
                     })
             }
@@ -42,7 +44,7 @@ const Table = ({ place }) => {
             <th>{tourists_spot_name}</th>
             <td>{location}</td>
             <td>{seasonality}</td>
-            <td>{average_cost}</td>
+            <td>${average_cost}</td>
             <td>
                 <Link to={`/update/${_id}`} ><button className='btn btn-md btn-success border-white text-white'>Update</button></Link>
             </td>

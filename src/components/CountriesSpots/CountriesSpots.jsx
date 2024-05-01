@@ -9,7 +9,7 @@ const CountriesSpots = () => {
    // const [countryplace, setCountryplace] = useState([]);
 
     // useEffect(() => {
-    //     fetch(`http://localhost:8000/country/${country}`)
+    //     fetch(` http://localhost:8000/country/${country}`)
     //     .then(res => res.json())
     //     .then(data => {
     //         setCountryplace(data)

@@ -16,7 +16,7 @@ const SingleSpot = ({spots}) => {
                 <h6 className=" flex-grow"><span className='font-bold'>Seasonality:  </span> {seasonality}</h6>
 
                 <div>
-                    <p className='text-base'><span className='font-bold'>Average Cost:  </span>  {average_cost}</p>
+                    <p className='text-base'><span className='font-bold'>Average Cost:  </span>  ${average_cost}</p>
                 </div>
                 <hr />
                 <div className="card-actions justify-between">

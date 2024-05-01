@@ -7,7 +7,7 @@ const SpotsDetails = () => {
 
     const spots = useLoaderData();
 //    console.log(spots);
-    const { image, tourists_spot_name, country_Name, average_cost, location, description, travel_time, seasonality, totaVisitorsPerYear, email, name } = spots;
+    const { image, tourists_spot_name, country_Name, average_cost, location, description, travel_time, seasonality, totaVisitorsPerYear, user_email, user_name } = spots;
 
 
     return (
@@ -18,8 +18,8 @@ const SpotsDetails = () => {
 
             <h2 className="text-4xl font-bold text-center pt-12 pb-5">Property Details</h2>
             <div className="flex justify-evenly pt-2">
-                <p className="text-xl"><span className="font-bold">User Email: </span>  {email}</p>
-                <p className="text-xl"><span className="font-bold">User Name: </span>  {name}</p>
+                <p className="text-xl"><span className="font-bold">User Email: </span>  {user_email}</p>
+                <p className="text-xl"><span className="font-bold">User Name: </span>  {user_name}</p>
             </div>
             <div className="m-3 p-2 flex justify-center items-center">
                 <div className="w-[40%] mx-auto">
@@ -41,7 +41,7 @@ const SpotsDetails = () => {
                             <p className="gap-5 py-3"><span className="text-gray-500">Total Visitors: </span></p>
                         </div>
                         <div className="text-bold">
-                            <p className="gap-5 py-4 sm:py-3">{average_cost}</p>
+                            <p className="gap-5 py-4 sm:py-3">${average_cost}</p>
                             <p className="gap-5 py-4 sm:py-3">{seasonality}</p>
                             <p className="gap-5 py-4 sm:py-3">{travel_time}</p>
                             <p className="gap-5 py-4 sm:py-3">{totaVisitorsPerYear}</p>

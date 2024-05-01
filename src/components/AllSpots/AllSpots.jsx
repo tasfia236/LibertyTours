@@ -7,7 +7,7 @@ const AllSpots = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:8000/tourspots')
+        fetch(' http://localhost:8000/tourspots')
         .then(res => res.json())
         .then((data) => {
             setSpots(data)

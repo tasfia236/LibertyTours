@@ -30,17 +30,17 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-   //     loader: () => fetch('http://localhost:8000/tourspots')
+   //     loader: () => fetch(' http://localhost:8000/tourspots')
       },
       {
         path: "/details/:id",
         element: <PrivateRoute><SpotsDetails></SpotsDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:8000/tourspots/${params.id}`)
+        loader: ({params}) => fetch(` http://localhost:8000/tourspots/${params.id}`)
       },
       {
         path: "/update/:id",
         element: <PrivateRoute><UpdateSpot></UpdateSpot></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:8000/tourspots/${params.id}`)
+        loader: ({params}) => fetch(` http://localhost:8000/tourspots/${params.id}`)
       },
       {
         path: "/login",
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
       {
         path: "/country/:id",
         element: <PrivateRoute><CountriesSpots></CountriesSpots></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:8000/country/${params.id}`)
+        loader: ({params}) => fetch(` http://localhost:8000/country/${params.id}`)
       }
     ]
   },
