@@ -32,17 +32,17 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-   //     loader: () => fetch(' http://localhost:8000/tourspots')
+   //     loader: () => fetch(' https://liberty-tours-server.vercel.app/tourspots')
       },
       {
         path: "/details/:id",
         element: <PrivateRoute><SpotsDetails></SpotsDetails></PrivateRoute>,
-        loader: ({params}) => fetch(` http://localhost:8000/tourspots/${params.id}`)
+        loader: ({params}) => fetch(` https://liberty-tours-server.vercel.app/tourspots/${params.id}`)
       },
       {
         path: "/update/:id",
         element: <PrivateRoute><UpdateSpot></UpdateSpot></PrivateRoute>,
-        loader: ({params}) => fetch(` http://localhost:8000/tourspots/${params.id}`)
+        loader: ({params}) => fetch(` https://liberty-tours-server.vercel.app/tourspots/${params.id}`)
       },
       {
         path: "/login",
@@ -71,8 +71,8 @@ const router = createBrowserRouter([
       {
         path: "/country/:id",
         element: <PrivateRoute><CountriesSpots></CountriesSpots></PrivateRoute>,
-        loader: ({params}) => fetch(` http://localhost:8000/country/${params.id}`)
-  //    loader: ({params}) => fetch(` http://localhost:8000/tourspots/${params.name}`)
+        loader: ({params}) => fetch(` https://liberty-tours-server.vercel.app/country/${params.id}`)
+  //    loader: ({params}) => fetch(` https://liberty-tours-server.vercel.app/tourspots/${params.name}`)
       }
     ]
   },

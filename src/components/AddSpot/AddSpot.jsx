@@ -26,7 +26,7 @@ const AddSpot = () => {
         const newSpot = { image, tourists_spot_name, country_Name, location, description, average_cost, seasonality, travel_time, totaVisitorsPerYear, user_email, user_name };
         console.log(newSpot);
 
-        fetch(' http://localhost:8000/tourspots', {
+        fetch(' https://liberty-tours-server.vercel.app/tourspots', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

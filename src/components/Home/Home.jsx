@@ -19,7 +19,7 @@ const Home = () => {
 
 
     useEffect(() => {
-        fetch(' http://localhost:8000/tourspots')
+        fetch(' https://liberty-tours-server.vercel.app/tourspots')
             .then(res => res.json())
             .then(data => {
                 setSpots(data);
@@ -33,7 +33,7 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        fetch(' http://localhost:8000/country')
+        fetch(' https://liberty-tours-server.vercel.app/country')
         .then(res => res.json())
         .then(data => {
           setCountry(data);
@@ -70,7 +70,7 @@ const Home = () => {
             </div>
             <h2 className="text-4xl text-center my-12 font-bold text-sky-800">Countries</h2>
 
-            <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-y-5 ml-8">
+            <div className="grid lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2 gap-y-5 ml-24 lg:ml-8 md:ml-12 sm:ml-20">
                 {
                     country.map(country => <Countries key={country._id} country={country}></Countries>)
                 }

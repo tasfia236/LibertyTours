@@ -10,7 +10,7 @@ const MyList = () => {
     console.log(place);
 
     useEffect(() => {
-        fetch(` http://localhost:8000/mylist/${user?.email}`)
+        fetch(` https://liberty-tours-server.vercel.app/mylist/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setPlace(data);

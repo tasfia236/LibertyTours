@@ -11,7 +11,7 @@ const CountriesSpots = () => {
     //  console.log(countryplace);
 
     useEffect(() => {
-        fetch(` http://localhost:8000/singlecountyspots/${country}`)
+        fetch(` https://liberty-tours-server.vercel.app/singlecountyspots/${country}`)
             .then(res => res.json())
             .then(data => {
                 setCountryplace(data)

@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProviders";
 import Swal from "sweetalert2";
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
 
     const handleregister = e => {
         e.preventDefault();
@@ -20,44 +20,49 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user);
+                updateUser(displayName, photoURL)
+                    .then(res => {
+                        console.log(res.user);
+                        Navigate('/')
+                    })
                 Swal.fire({
                     title: "User Successfully Registered",
                     icon: "success",
                     showClass: {
-                      popup: `
+                        popup: `
                         animate__animated
                         animate__fadeInUp
                         animate__faster
                       `
                     },
                     hideClass: {
-                      popup: `
+                        popup: `
                         animate__animated
                         animate__fadeOutDown
                         animate__faster
                       `
                     }
-                  });
+                });
             })
             .catch(error => {
                 Swal.fire({
                     title: `error registering, ${error.code}`,
                     icon: "warning",
                     showClass: {
-                      popup: `
+                        popup: `
                         animate__animated
                         animate__fadeInUp
                         animate__faster
                       `
                     },
                     hideClass: {
-                      popup: `
+                        popup: `
                         animate__animated
                         animate__fadeOutDown
                         animate__faster
                       `
                     }
-                  });
+                });
                 console.error(error);
             })
     }

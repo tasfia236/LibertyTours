@@ -8,7 +8,7 @@ const AllSpots = () => {
     const [sortOption, setSortOption] = useState('Sorted By');
 
     useEffect(() => {
-        fetch('http://localhost:8000/tourspots')
+        fetch('https://liberty-tours-server.vercel.app/tourspots')
             .then(res => res.json())
             .then((data) => {
                 setSpots(data);
