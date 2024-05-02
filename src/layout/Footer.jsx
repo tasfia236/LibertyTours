@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import icon from "../assets/travel-icon.png"
 
 const Footer = () => {

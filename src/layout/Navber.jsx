@@ -31,10 +31,8 @@ const Navber = () => {
 
     const Navlinks1 = <>
         <li><Link className="hover:bg-sky-200 rounded-lg" to='/'>Home</Link></li>
-        {/* <li><Link onClick={() => window.scrollTo({ top:600, behavior: "smooth" })}>Estate</Link></li>*/}
         <li><Link className="hover:bg-sky-200 rounded-lg" to='/allspots'>All Tourists Spot</Link></li>
         <li><Link className="hover:bg-sky-200 rounded-lg" to='/addspot'>Add Tourists Spot</Link></li>
-        <li><Link className="hover:bg-sky-200 rounded-lg" to='/contact'>Contact</Link></li>
     </>
 
     return (
@@ -55,7 +53,7 @@ const Navber = () => {
                 <h1 className="btn btn-ghost text-3xl font-black text-sky-600">Liberty Tours</h1>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal -mr-16 px-1 font-bold">
+                <ul className="menu menu-horizontal px-1 font-bold">
                     {Navlinks1}
                     {user && <>
                         <li><Link to='/mylist'>My List</Link></li>
