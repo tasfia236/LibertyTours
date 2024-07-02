@@ -1,8 +1,16 @@
-# React + Vite
+## WebSite Name: LIberty Tours
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Hosting URL: https://liberty-tours-70cb2.web.app/
 
-Currently, two official plugins are available:
+## Features:
+1. Tourist Spot's Details
+2. Country wise show the tourist spots
+3. Responsive Design
+4. User can create account
+5. Sorted by All Tourist Spots
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## npm packages:
+1. React Awesome reveal
+2. React-tooltip
+
+## Category Name: Southeast Asia
